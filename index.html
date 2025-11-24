@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basketbawl</title>
     <link rel="stylesheet" href="CSS/IndexStyle.css">
-    <link href="https://fonts.googleapis.com/css2?
-    family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 </head>
 
-<body>
 <body>
     <div class="Container">
         <header>
             <div class="mobile-toggle" id="mobile-toggle">
                 <i class="fas fa-bars"></i>
             </div>
-            <a href="index.php" class="Left-Side">We Know Ball </a>
-            <ul class="nav-links">			
-				<li><a href="About.php">Teams</a></li>
+            <a href="index.php" class="Left-Side">We Know Ball</a>
+            <ul class="nav-links">
+                <li><a href="About.php">Teams</a></li>
                 <li><a href="Services.php">Players</a></li>
                 <li><a href="Gallery.php">Leaders</a></li>
                 <li><a href="Contact.php">Standings</a></li>
@@ -27,20 +25,99 @@
         </header>
 
         <div class="slideshow-container">
-            <div class="mySlides fade">
-                <img src="Pictures/homebg.jpg" style="width:100%">
+            <div class="slide fade active">
+                <img src="Pictures/homebg.jpg" alt="Home background">
+                <div class="slide-text">
+                    <h1>We Know Ball</h1>
+                    <h2>Just trust us.</h2>
+                </div>
             </div>
-            <div class="mySlides fade">
-                <img src="Pictures/teamsbg.jpg" style="width:100%">
+
+            <div class="slide fade">
+                <img src="Pictures/teamsbg.jpg" alt="Teams background">
+                <div class="slide-text">
+                    <h1>Teams</h1>
+                    <a href="About.php" class="slide-btn">View Teams</a>
+                </div>
             </div>
-            <div class="mySlides fade">
-                <img src="Pictures/playerbg.jpg" style="width:100%">
+
+            <div class="slide fade">
+                <img src="Pictures/playerbg.jpg" alt="Players background">
+                <div class="slide-text">
+                    <h1>Players</h1>
+                    <a href="Services.php" class="slide-btn">Player Stats</a>
+                </div>
             </div>
-            <div class="mySlides fade">
-                <img src="Pictures/leadersbg.jpg" style="width:100%">
+
+            <div class="slide fade">
+                <img src="Pictures/leadersbg.jpg" alt="Leaders background">
+                <div class="slide-text">
+                    <h1>Stat Leaders</h1>
+                    <a href="Gallery.php" class="slide-btn">View Current Stat Leaders</a>
+                </div>
             </div>
-            <div class="mySlides fade">
-                <img src="Pictures/standingsbg.jpg" style="width:100%">
+
+            <div class="slide fade">
+                <img src="Pictures/standingsbg.jpg" alt="Standings background">
+                <div class="slide-text">
+                    <h1>Standings</h1>
+                    <a href="Contact.php" class="slide-btn">Check Who's On Top</a>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
             </div>
         </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        let slides = document.querySelectorAll(".slide");
+        let dots = document.querySelectorAll(".dot");
+        let autoSlideInterval;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            dots.forEach(dot => dot.classList.remove("active"));
+
+            slideIndex = (n + slides.length) % slides.length;
+
+            slides[slideIndex].classList.add("active");
+            dots[slideIndex].classList.add("active");
+        }
+
+        function plusSlides(n) {
+            showSlide(slideIndex + n);
+            resetAutoPlay();
+        }
+
+        function currentSlide(n) {
+            showSlide(n);
+            resetAutoPlay();
+        }
+
+        function autoPlay() {
+            autoSlideInterval = setInterval(() => {
+                plusSlides(1);
+            }, 5000); // 5 seconds
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoSlideInterval);
+            autoPlay();
+        }
+
+        // init
+        showSlide(0);
+        autoPlay();
+    </script>
 </body>
+</html>
