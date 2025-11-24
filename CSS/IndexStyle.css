@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.mobile-toggle {
+    display: none;
+}
+
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 40px 20vh;
+    z-index: 100000;
+}
+
+.sticky{
+    padding: 20px 100px;
+    background: #000;
+}
+
+header .Left-Side{
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease-in-out;
+}
+
+header .Left-Side:hover{
+    transform: scale(1.1);
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul li{
+    position: relative;
+    list-style: none;
+}
+
+header ul li a{
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 25px;
+    text-transform: uppercase;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+header ul li a:hover {
+    transform: scale(1.1);
+}
+
+.Container{
+	width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: left;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    z-index: 0;
+}
+
+.mySlides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.mySlides::after {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.mySlides img {
+    filter: brightness(0.9);
+    transform: scale(1.05);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
